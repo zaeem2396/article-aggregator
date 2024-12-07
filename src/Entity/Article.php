@@ -15,7 +15,7 @@ class Article
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $authorName = null;
+    private ?string $author_name = null;
 
     #[ORM\Column(length: 255)]
     private ?string $title = null;
@@ -27,7 +27,7 @@ class Article
     private ?string $image = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $createdAt = null;
+    private ?\DateTimeInterface $created_at = null;
 
     public function getId(): ?int
     {
@@ -36,12 +36,12 @@ class Article
 
     public function getAuthorName(): ?string
     {
-        return $this->authorName;
+        return $this->author_name;
     }
 
-    public function setAuthorName(string $authorName): static
+    public function setAuthorName(string $author_name): static
     {
-        $this->authorName = $authorName;
+        $this->author_name = $author_name;
 
         return $this;
     }
@@ -84,13 +84,25 @@ class Article
 
     public function getCreatedAt(): ?\DateTimeInterface
     {
-        return $this->createdAt;
+        return $this->created_at;
     }
 
-    public function setCreatedAt(\DateTimeInterface $createdAt): static
+    public function setCreatedAt(\DateTimeInterface $created_at): static
     {
-        $this->createdAt = $createdAt;
+        $this->created_at = $created_at;
 
         return $this;
+    }
+
+    public function toArray(): array
+    {
+        return [
+            'id' => $this->getId(),
+            'author_name' => $this->getAuthorName(),
+            'title' => $this->getTitle(),
+            'summary' => $this->getSummary(),
+            'image' => $this->getImage(),
+            'created_at' => $this->getCreatedAt()?->format('Y-m-d H:i:s'),
+        ];
     }
 }
