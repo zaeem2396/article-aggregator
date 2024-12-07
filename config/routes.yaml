@@ -1,5 +1,9 @@
-controllers:
-    resource:
-        path: ../src/Controller/
-        namespace: App\Controller
-    type: attribute
+article_index:
+    path: /api/articles
+    controller: App\Controller\ArticleController::index
+    methods: [GET]
+
+article_export:
+    path: /api/articles/export
+    controller: App\Controller\ArticleController::export
+    methods: [GET]
