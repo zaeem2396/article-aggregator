@@ -18,4 +18,4 @@ framework:
         pools:
             app.cache: 
                 adapter: cache.adapter.redis
-                provider: redis://redis:6379
+                provider: '%env(REDIS_URL)%'
