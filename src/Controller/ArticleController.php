@@ -23,7 +23,7 @@ class ArticleController extends AbstractController
         private ArticleExportServices $export
     ) {}
 
-    #[Route('/api/articles', methods: ['GET'])]
+    // #[Route('/api/articles', methods: ['GET'])]
     public function index(Request $request, PaginatorInterface $paginator): JsonResponse
     {
         try {
@@ -92,7 +92,7 @@ class ArticleController extends AbstractController
         }
     }
 
-    #[Route('/api/articles/export', methods: ['GET'])]
+    // #[Route('/api/articles/export', methods: ['GET'])]
     public function export(Request $request)
     {
         try {

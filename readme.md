@@ -8,3 +8,4 @@
 - After successful migrations run this command to populate the DB ```php bin/console app:ArticleSeed```
 - After DB is populated successfully hit this url http://localhost:8000/api/articles
 - To export data hit this url http://localhost:8000/api/articles/export?[filters]&format=csv/excel
+- Filters which needs to be passed are ```author_name, title, summary, created_at```   
